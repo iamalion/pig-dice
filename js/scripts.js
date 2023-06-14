@@ -62,8 +62,14 @@ function handleFormSubmission(event){
 event.preventDefault();
 }
 
+function rollTheDice() {
+    let newRoll = new DiceRoll();
+    newRoll.roll();
+}
+
 window.addEventListener("load", function(){
     document.querySelector("form#name-form").addEventListener("submit", handleFormSubmission);
+    document.querySelector("button#roll-button").addEventListener("click", rollTheDice)
 })
 
 
