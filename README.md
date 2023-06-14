@@ -84,6 +84,17 @@ function Player(name){
 Test 1: It should roll a random number between 1 and 6 (inclusive)
 Code: 
 Expected Output:
+<!--
+function DiceRoll() {
+    this.numbers = [1, 2, 3, 4, 5, 6];
+};
+
+DiceRoll.prototype.roll = function () {
+    return this.numbers[Math.floor(Math.random() * this.numbers.length)];
+}; 
+-->
+
+It should add the points after each roll
 
 ## Setup/Installation Requirements
 
