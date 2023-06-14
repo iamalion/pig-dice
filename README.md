@@ -45,7 +45,7 @@ let player1 = new Player("Casey")
 'Casey'
 -->
 
-Test 2: It should assign points and an ID to a player.
+Test 2: It will assign points and an ID to a player.
 Code: const name = "Lindsay"
 Expected Output: expected output = Player{name: Lindsay, points: 0, id: 1}
 
