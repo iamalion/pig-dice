@@ -23,53 +23,33 @@ PlayerList.prototype.findPlayer = function (id) {
 //Business logic for Player
 function Player(name){
     this.name = name;
-    this.points = 0;
+    this.points = [];
 };
 
-//Business logic for DiceRoll
-
-function DiceRoll() {
-    this.numbers = [1, 2, 3, 4, 5, 6];
+Player.prototype.diceRoll = function (prevScore = 0){
+    const numbers = [1,2,3,4,5,6];
+    let number = numbers[Math.floor(Math.random() * numbers.length)];
+    console.log(number);
+    let talliedNumbers = this.points;
+    talliedNumbers.push(number);
+    // this.points = talliedNumbers;
+    console.log(talliedNumbers);
+    let newTotal = 0;
+    for (let i = 0; i < talliedNumbers.length; i++){
+        newTotal += talliedNumbers[i];
+    }
+    return newTotal;
 };
-
-DiceRoll.prototype.roll = function () {
-    return this.numbers[Math.floor(Math.random() * this.numbers.length)];
-};
-
-// const diceRoll = new DiceRoll();
-// const result = diceRoll.roll();
-// console.log(result);
-
-//Business logic for PointTally
-
-function PointTally () {
-    this.points = 0
-}
-
-PointTally.prototype.tallyPoints = function () {
-    let diceRoll = new DiceRoll();
-    let point = diceRoll.roll();
-    this.points += point;
-    return this.points;
-};
-
-// const pointTally = new PointTally()
-// const result = pointTally.tallyPoints();
-// console.log(result);
 
 //UI Logic
 function handleFormSubmission(event){
 event.preventDefault();
 }
 
-function rollTheDice() {
-    let newRoll = new DiceRoll();
-    newRoll.roll();
-}
-
 window.addEventListener("load", function(){
     document.querySelector("form#name-form").addEventListener("submit", handleFormSubmission);
-    document.querySelector("button#roll-button").addEventListener("click", rollTheDice)
+    document.querySelector("button#roll-button").addEventListener("click", diceRoll);
+    // document.querySelector("span#roll-result").innerHTML = newTotal;
 })
 
 
