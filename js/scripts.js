@@ -53,9 +53,18 @@ PointTally.prototype.tallyPoints = function () {
     return this.points;
 };
 
-const pointTally = new PointTally()
-const result = pointTally.tallyPoints();
-console.log(result);
+// const pointTally = new PointTally()
+// const result = pointTally.tallyPoints();
+// console.log(result);
+
+//UI Logic
+function handleFormSubmission(event){
+event.preventDefault();
+}
+
+window.addEventListener("load", function(){
+    document.querySelector("form#name-form").addEventListener("submit", handleFormSubmission);
+})
 
 
 
