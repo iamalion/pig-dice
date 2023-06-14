@@ -13,19 +13,41 @@
 * _GitHub_
 
 ## Description
+Objects
+- Player
+    - player1 = name
+    - player2 = name
+- Dice
 
-_{This is a detailed description of your application. Give as much detail as needed to explain what the application does as well as any other information you want users or other developers to have.}_
+function Player(name, points) {
+    this.name = name
+    this.points = 0
+}
+
+Function
+- Roll
+- Hold
+- Start Over
+- Point Tally
 
 ## Tests
-### Describe:
+### Describe: Create Player
 
-Test 1:
-Code:
-Expected Output:
+Test 1: It should assign a player name that is the same as the inputted name.
+Code: const name = (Lindsay)
+Expected Output: Player {name: Lindsay}
 
-Test 2:
-Code:
-Expected Output:
+<!--
+function Player(name) {
+    this.name = name
+}
+let player1 = new Player("Casey")
+'Casey'
+-->
+
+Test 2: It should assign points and an ID to a player.
+Code: const name = "Lindsay"
+Expected Output: expected output = Player{name: Lindsay, points: 0, id: 1}
 
 ## Setup/Installation Requirements
 
