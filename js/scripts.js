@@ -20,10 +20,26 @@ PlayerList.prototype.findPlayer = function (id) {
     return false;
 };
 
+PlayerList.prototype.startGame(); {
+    this.players[0].currentTurn = true;
+    this.players[1].currentTurn = false;
+};
+
+PlayerList.prototype.holdRoll = function(){
+    if ((this.players[0].currentTurn = true) && (this.players[1].currentTurn = false)) {
+        this.players[0].currentTurn = false;
+        this.players[1].currentTurn = true;
+    } else if ((this.players[0].currentTurn = false) && (this.players[1].currentTurn = true)) {
+        this.players[0].currentTurn = true;
+        this.players[1].currentTurn = false;
+    }
+};
+
 //Business logic for Player
 function Player(name){
     this.name = name;
     this.points = [];
+    // this.currentTurn = true;
 };
 
 Player.prototype.diceRoll = function (prevScore = 0){
@@ -39,6 +55,7 @@ Player.prototype.diceRoll = function (prevScore = 0){
     }
     return newTotal;
 };
+
 
 //UI Logic
 function handleFormSubmission(event){

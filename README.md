@@ -32,6 +32,7 @@ Prototypes for Player:
 - diceRoll: Returns a random number every time it's invoked and pushes the value to an empty array on the Player object. It then adds each index of the array together to return a total. 
 
 Function
+- Start 
 - Roll
 - Hold
 - Start Over
@@ -104,6 +105,16 @@ DiceRoll.prototype.roll = function () {
 Test: It should add the points after each roll.
 Code:
 Expected Output:
+
+Describe startGame()
+Test: It will set Player 1 as the first player to roll
+Code:
+Expected Output:
+
+#### Describe holdRoll()
+Test: It will hold the tallied points and switch between players.
+Code: 
+Expected Output: 
 
 ## Setup/Installation Requirements
 
