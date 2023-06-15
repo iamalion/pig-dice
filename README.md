@@ -13,16 +13,23 @@
 * _GitHub_
 
 ## Description
-Objects
-- Player
-    - player1 = name
-    - player2 = name
-- Dice
+Each turn, a player repeatedly rolls a die until either a 1 is rolled or the player decides to "hold":
 
-function Player(name, points) {
-    this.name = name
-    this.points = 0
-}
+If the player rolls a 1, they score nothing and it becomes the next player's turn.
+If the player rolls any other number, it is added to their turn total and the player's turn continues.
+If a player chooses to "hold", their turn total is added to their score, and it becomes the next player's turn.
+The first player to score 100 or more points wins.
+
+This application required the following:
+Objects
+- Player List: an object to hold multiple players
+- Player(s): an object to hold different player values and methods
+
+Prototypes for PlayerList:
+- 
+
+Prototypes for Player:
+- diceRoll: Returns a random number every time it's invoked and pushes the value to an empty array on the Player object. It then adds each index of the array together to return a total. 
 
 Function
 - Roll
@@ -94,7 +101,9 @@ DiceRoll.prototype.roll = function () {
 }; 
 -->
 
-It should add the points after each roll
+Test: It should add the points after each roll.
+Code:
+Expected Output:
 
 ## Setup/Installation Requirements
 

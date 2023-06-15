@@ -32,7 +32,6 @@ Player.prototype.diceRoll = function (prevScore = 0){
     console.log(number);
     let talliedNumbers = this.points;
     talliedNumbers.push(number);
-    // this.points = talliedNumbers;
     console.log(talliedNumbers);
     let newTotal = 0;
     for (let i = 0; i < talliedNumbers.length; i++){
