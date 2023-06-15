@@ -33,9 +33,11 @@ PlayerList.prototype.holdRoll = function(){
     if ((this.players[1].currentTurn)) {
         this.players[1].currentTurn = false;
         this.players[2].currentTurn = true;
+        return this.players[2];
     } else {
         this.players[1].currentTurn = true;
         this.players[2].currentTurn = false;
+        return this.players[1];
     }
 };
 
@@ -89,7 +91,10 @@ function handleRollClick () {
 document.querySelector("button#roll-button").addEventListener("click", handleRollClick);
 
 function handleHoldClick () {
-    currentPlayer.holdRoll();
+    console.log("hold button clicked")
+    console.log(currentPlayer);
+    currentPlayer = playerList.holdRoll();
+    console.log(currentPlayer);
 }
 document.querySelector("button#hold-button").addEventListener("click", handleHoldClick)
 }
