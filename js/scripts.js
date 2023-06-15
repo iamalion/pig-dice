@@ -75,12 +75,11 @@ welcomeOutput.append("Welcome " + player1Name + " and " + player2Name + " to the
 function handleRollClick () {
     let rollOutput = document.getElementById("roll-output");
     rollOutput.innerText = (player1.diceRoll())
-    
-    } document.querySelector("button#roll-button").addEventListener("click", handleRollClick);
+    let rollArray = document.getElementById("roll-array-output");
+    rollArray.innerText = player1.points.join(", ");
+    // for (let i = 0; i <player1.points.length; i++){
 }
-
-function handleHoldClick () {
-    
+document.querySelector("button#roll-button").addEventListener("click", handleRollClick);
 }
 
 
