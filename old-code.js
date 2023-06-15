@@ -44,3 +44,10 @@ PlayerList.prototype.holdRoll = function(){
         this.players[1].currentTurn = false;
     }
 };
+
+
+//UI Logic
+// function CreatePlayer() {
+//    let player = new Player(document.getElementById('playerName').value);
+//    document.getElementById('playerName').value = " "; 
+// }

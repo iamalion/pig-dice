@@ -1,6 +1,7 @@
 function PlayerList() {
     this.players = {};
     this.currentId = 0;
+   
 };
 
 PlayerList.prototype.assignId = function() {
@@ -23,10 +24,13 @@ PlayerList.prototype.findPlayer = function (id) {
 PlayerList.prototype.startGame = function () {
     this.players[1].currentTurn = true;
     this.players[2].currentTurn = false;
+    this.currentId = 1;
+    // console.log(this.players[1].currentTurn);
+    // console.log(this.players[2].currentTurn);
 };
 
 PlayerList.prototype.holdRoll = function(){
-    if (this.players[1].currentTurn) {
+    if ((this.players[1].currentTurn)) {
         this.players[1].currentTurn = false;
         this.players[2].currentTurn = true;
     } else {
@@ -66,24 +70,26 @@ console.log(player1);
 let player2 = new Player(player2Name);
 console.log(player2);
 let playerList = new PlayerList();
-playerList.addPlayer(player1, player2);
+playerList.addPlayer(player1);
+playerList.addPlayer(player2);
 console.log(playerList);
 playerList.startGame();
 console.log(playerList);
 let welcomeOutput = document.getElementById("welcome-output"); 
 welcomeOutput.append("Welcome " + player1Name + " and " + player2Name + " to the game of Pig Dice! The first player to reach 100 points wins! " + player1Name + ", roll the dice to start the game.")
 
+let currentPlayer = playerList.players[playerList.currentId];
 function handleRollClick () {
+    
     let rollOutput = document.getElementById("roll-output");
-    rollOutput.innerText = (player1.diceRoll())
+    rollOutput.innerText = (currentPlayer.diceRoll())
     let rollArray = document.getElementById("roll-array-output");
-    rollArray.innerText = player1.points.join(", ");
-    // for (let i = 0; i <player1.points.length; i++){
+    rollArray.innerText = currentPlayer.points.join(", ");
 }
 document.querySelector("button#roll-button").addEventListener("click", handleRollClick);
 
 function handleHoldClick () {
-
+    currentPlayer.holdRoll();
 }
 document.querySelector("button#hold-button").addEventListener("click", handleHoldClick)
 }
@@ -103,10 +109,3 @@ window.addEventListener("load", function(){
 
 
 
-
-
-//UI Logic
-// function CreatePlayer() {
-//    let player = new Player(document.getElementById('playerName').value);
-//    document.getElementById('playerName').value = " "; 
-// }
