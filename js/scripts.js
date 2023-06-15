@@ -21,17 +21,17 @@ PlayerList.prototype.findPlayer = function (id) {
 };
 
 PlayerList.prototype.startGame = function () {
-    this.players[0].currentTurn = true;
-    this.players[1].currentTurn = false;
+    this.players[1].currentTurn = true;
+    this.players[2].currentTurn = false;
 };
 
 PlayerList.prototype.holdRoll = function(){
-    if (this.players[0].currentTurn) {
-        this.players[0].currentTurn = false;
-        this.players[1].currentTurn = true;
-    } else {
-        this.players[0].currentTurn = true;
+    if (this.players[1].currentTurn) {
         this.players[1].currentTurn = false;
+        this.players[2].currentTurn = true;
+    } else {
+        this.players[1].currentTurn = true;
+        this.players[2].currentTurn = false;
     }
 };
 
@@ -39,7 +39,7 @@ PlayerList.prototype.holdRoll = function(){
 function Player(name){
     this.name = name;
     this.points = [];
-    // this.currentTurn = true;
+    this.currentTurn = true;
 };
 
 Player.prototype.diceRoll = function (prevScore = 0){
@@ -60,13 +60,16 @@ Player.prototype.diceRoll = function (prevScore = 0){
 function handleFormSubmission(event){
 event.preventDefault();
 let player1Name = document.getElementById("player1").value;
-console.log(player1Name);
 let player2Name = document.getElementById("player2").value;
-console.log(player2Name);
 let player1 = new Player(player1Name);
-console.log(player1)
+console.log(player1);
 let player2 = new Player(player2Name);
 console.log(player2);
+let playerList = new PlayerList();
+playerList.addPlayer(player1, player2);
+console.log(playerList);
+playerList.startGame();
+console.log(playerList);
 let welcomeOutput = document.getElementById("welcome-output"); 
 welcomeOutput.append("Welcome " + player1Name + " and " + player2Name + " to the game of Pig Dice! The first player to reach 100 points wins! " + player1Name + ", roll the dice to start the game.")
 
