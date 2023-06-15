@@ -102,12 +102,12 @@ DiceRoll.prototype.roll = function () {
 }; 
 -->
 
-Test: It should add the points after each roll.
+Test: It will add the points after each roll.
 Code:
 Expected Output:
 
-Describe startGame()
-Test: It will set Player 1 as the first player to roll
+#### Describe startGame()
+Test: "It will set Player 1 as the first player to roll."
 Code:
 Expected Output:
 

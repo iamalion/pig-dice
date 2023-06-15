@@ -8,6 +8,7 @@
 <body>
     <h1>Pig Dice</h1>
     <p>How to play: Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates maxime asperiores earum doloremque. Enim adipisci ullam, illum, excepturi quae asperiores omnis id deleniti cumque fuga quisquam unde vitae ea quibusdam.</p>
+    <div id="div-form">
     <form id="name-form">
         <p>Enter Player One Name:</p>
         <input type="text" id="player1" name="player1Name">
@@ -15,13 +16,16 @@
         <input type="text" id="player2" name="player2Name">
         <button type="submit" name="submit-button">Submit</button>
     </form>
+    </div>
     <div>
         <p id="welcome-output" class="hidden"></p>
     </div>
 
     <button id="roll-button">Roll</button>
     <p>Roll result:</p>
-    <p><span id="roll-result"></span></p>
+    <div id="roll-result">
+            <p id="roll-output"></p>
+</div>
     
 </body>
 </html>
