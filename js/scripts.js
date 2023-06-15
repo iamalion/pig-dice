@@ -26,10 +26,10 @@ PlayerList.prototype.startGame = function () {
 };
 
 PlayerList.prototype.holdRoll = function(){
-    if ((this.players[0].currentTurn = true) && (this.players[1].currentTurn = false)) {
+    if (this.players[0].currentTurn) {
         this.players[0].currentTurn = false;
         this.players[1].currentTurn = true;
-    } else if ((this.players[0].currentTurn = false) && (this.players[1].currentTurn = true)) {
+    } else {
         this.players[0].currentTurn = true;
         this.players[1].currentTurn = false;
     }
@@ -56,8 +56,6 @@ Player.prototype.diceRoll = function (prevScore = 0){
     return newTotal;
 };
 
-
-
 //UI Logic
 function handleFormSubmission(event){
 event.preventDefault();
@@ -80,6 +78,11 @@ function handleRollClick () {
     // for (let i = 0; i <player1.points.length; i++){
 }
 document.querySelector("button#roll-button").addEventListener("click", handleRollClick);
+
+function handleHoldClick () {
+
+}
+document.querySelector("button#hold-button").addEventListener("click", handleHoldClick)
 }
 
 

@@ -34,3 +34,13 @@ function rollTheDice() {
 //          return newTotal;
 //     };
 // };
+
+PlayerList.prototype.holdRoll = function(){
+    if ((this.players[0].currentTurn = true) && (this.players[1].currentTurn = false)) {
+        this.players[0].currentTurn = false;
+        this.players[1].currentTurn = true;
+    } else if ((this.players[0].currentTurn = false) && (this.players[1].currentTurn = true)) {
+        this.players[0].currentTurn = true;
+        this.players[1].currentTurn = false;
+    }
+};
